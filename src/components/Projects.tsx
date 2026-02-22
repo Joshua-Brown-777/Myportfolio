@@ -13,7 +13,7 @@ import { motion, AnimatePresence, useMotionValue, useTransform } from "motion/re
 const projects = [
   {
     id: "snake-quiz-game",
-    title: "Snake + Quiz Game",
+    title: "Inflamatory + Quiz Game",
     description: "An application with a retro vibe, created for my Lower Sixth Coursework",
     image: "https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMnh1cTN0Z3FyZTJodnBiZnUwNWZtejA3a3g2MGtpNzNqcW02MXJ0dSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QXfFauCUlD7gPpiGrc/giphy.gif",
     tags: ["C#", "Winforms", "Solo Development", "Education - Yr13"],
