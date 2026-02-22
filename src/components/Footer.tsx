@@ -68,7 +68,7 @@ export function Footer() {
             }}>Connect</h4>
             <div className="flex gap-4 mb-4">
               <a
-                href="https://github.com"
+                href="https://github.com/Joshua-Brown-777"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gradient-to-br from-purple-500 to-pink-500 rounded-lg flex items-center justify-center hover:scale-110 transition-all"
@@ -84,15 +84,6 @@ export function Footer() {
                 style={{ boxShadow: '0 4px 12px rgba(59, 130, 246, 0.3)' }}
               >
                 <Linkedin className="w-5 h-5 text-white" />
-              </a>
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-lg flex items-center justify-center hover:scale-110 transition-all"
-                style={{ boxShadow: '0 4px 12px rgba(34, 211, 238, 0.3)' }}
-              >
-                <Twitter className="w-5 h-5 text-white" />
               </a>
               <a
                 href="mailto:joshuagbrown777@gmail.com"
