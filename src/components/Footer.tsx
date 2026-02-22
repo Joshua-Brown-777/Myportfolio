@@ -77,7 +77,7 @@ export function Footer() {
                 <Github className="w-5 h-5 text-white" />
               </a>
               <a
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/in/joshua-brown-76bbb4386/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-lg flex items-center justify-center hover:scale-110 transition-all"

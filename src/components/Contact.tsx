@@ -5,6 +5,8 @@ import { Separator } from "./ui/separator";
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useState } from "react";
 import { WavyText } from "./WavyText";
+import emailjs from 'emailjs-com';
+
 
 export function Contact() {
   const [formData, setFormData] = useState({
@@ -13,13 +15,21 @@ export function Contact() {
     message: ""
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    console.log("Form submitted:", formData);
-    // Here you would typically send the form data to a backend
-    alert("Thank you for your message! I'll get back to you soon.");
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
+
+  emailjs.send(
+    'service_5yqcykm',
+    'template_1lj5abt',
+    formData,
+    'KNACG6Y5kybXSYEQ8'
+  ).then(() => {
+    alert("Message sent!");
     setFormData({ name: "", email: "", message: "" });
-  };
+  }).catch(() => {
+    alert("Failed to send message.");
+  });
+};
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
