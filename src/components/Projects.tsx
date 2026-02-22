@@ -21,7 +21,7 @@ const projects = [
     showFullImage: true
   },
   {
-    id: "mobile-fitness-app",
+    id: "spin-cycle-game",
     title: "Spin Cycle Game",
     description: "Designing and developing a Lua-based game with the LÖVE2D framework, bringing creative ideas to life through engaging UI and immersive player experiences.",
     image: "https://img.youtube.com/vi/NH0NghaJhNU/maxresdefault.jpg",
@@ -31,11 +31,11 @@ const projects = [
     showFullImage: false
   },
   {
-    id: "project-management-dashboard",
-    title: "Project Management Dashboard",
-    description: "Comprehensive dashboard for managing projects, teams, and tasks with real-time collaboration features.",
-    image: "https://images.unsplash.com/photo-1758598497485-300d809e55ad?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxwcm9mZXNzaW9uYWwlMjB3b3Jrc3BhY2UlMjBkZXNrfGVufDF8fHx8MTc2MTY1MTk1MHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral",
-    tags: ["Vue.js", "GraphQL", "PostgreSQL"],
+    id: "3d-modeling",
+    title: "3D Modeling",
+    description: "Messing around a bunch with Blender for personal projects and general development",
+    image: "",
+    tags: ["Blender"],
     github: "#",
     showFullImage: false
   }
@@ -242,10 +242,11 @@ function CarouselCard({
           <motion.div 
             className="absolute inset-0"
             style={{
-              display: showFront ? 'block' : 'none'
+              display: showFront ? 'block' : 'none',
+              transformStyle: 'preserve-3d'
             }}
           >
-            <Card className="h-full overflow-hidden border-primary shadow-2xl shadow-primary/30 flex flex-col bg-card/90 backdrop-blur-sm">
+            <Card className="h-full overflow-hidden border-primary shadow-2xl shadow-primary/30 flex flex-col bg-card/90 backdrop-blur-sm" style={{ transformStyle: 'preserve-3d' }}>
               <div className={`aspect-video overflow-hidden ${project.showFullImage ? 'bg-black' : 'bg-accent'}`}>
                 {project.videoEmbed ? (
                   <YouTubePlayer
@@ -276,14 +277,14 @@ function CarouselCard({
                     </Badge>
                   ))}
                 </div>
-                <div className="flex gap-2">
-                  <Link to={`/project/${project.id}`} className="flex-1">
-                    <Button variant="outline" size="sm" className="w-full">
+                <div className="flex gap-2" style={{ pointerEvents: 'auto' }}>
+                  <Link to={`/project/${project.id}`} className="flex-1" style={{ pointerEvents: 'auto' }}>
+                    <Button variant="outline" size="sm" className="w-full" style={{ pointerEvents: 'auto' }}>
                       <ArrowRight className="w-4 h-4 mr-2" />
                       Check it out
                     </Button>
                   </Link>
-                  <Button variant="outline" size="sm" className="flex-1">
+                  <Button variant="outline" size="sm" className="flex-1" style={{ pointerEvents: 'auto' }}>
                     <Github className="w-4 h-4 mr-2" />
                     Code
                   </Button>
