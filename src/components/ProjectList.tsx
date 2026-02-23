@@ -120,7 +120,7 @@ export function ProjectList() {
                     <div className="flex items-center gap-4 mt-auto pt-6 border-t border-zinc-800 group-hover:border-purple-900/50 transition-colors">
                       <Link to={`/project/${project.id}`} className="flex-1">
                         <Button className="w-full bg-gradient-to-r from-red-600 via-purple-600 to-blue-500 hover:opacity-90 text-white border-0">
-                          Full Case Study
+                          Learn More Here
                         </Button>
                       </Link>
                       <a href={project.github} target="_blank" rel="noopener noreferrer">
