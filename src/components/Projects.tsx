@@ -107,10 +107,22 @@ function CarouselCard({ song, position, isCenterCard, offset, index, isDragging 
             style={{ transformStyle: 'preserve-3d' }}
           >
             <div
-              className="absolute w-[350px] h-[490px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
-              style={{ pointerEvents: 'auto', zIndex: 1000 }}
+              className="youtube-player w-full h-full"
+              style={{
+                transform: window.innerWidth < 768 ? 'none' : undefined,
+                backfaceVisibility: 'visible',
+                pointerEvents: 'auto',
+              }}
             >
-              <YouTubePlayer videoId={song.videoId} />
+              {/* Desktop Player */}
+              <div className="hidden md:block w-full h-full">
+                <YouTubePlayer videoId={song.videoId} className="w-full h-full" />
+              </div>
+            
+              {/* Mobile Player */}
+              <div className="block md:hidden absolute top-0 left-0 w-full h-full z-50">
+                <YouTubePlayer videoId={song.videoId} className="w-full h-full" />
+              </div>
             </div>
         
             <CardHeader className="flex-grow">
