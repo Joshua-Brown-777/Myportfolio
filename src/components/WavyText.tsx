@@ -45,16 +45,16 @@ export function WavyText({ text, className = "", large = false }: WavyTextProps)
       <span 
         className={className}
         style={{ 
-          fontSize: large ? '3.5rem' : undefined,
-          display: 'inline',
+          fontSize: large ? 'clamp(2rem, 5vw, 3.5rem)' : 'clamp(1.5rem, 4vw, 3rem)',
+          display: 'inline-block',
+          whiteSpace: 'nowrap',
         }}
       >
         {characters.map((char, index) => {
           const delaySeconds = index * 0.1;
-          // Calculate the background position for this letter to show the correct part of the gradient
           const backgroundPosition = `${(index / Math.max(textLength - 1, 1)) * 100}% 0`;
           const backgroundSize = `${textLength * 100}% 100%`;
-          
+      
           return (
             <span
               key={index}
