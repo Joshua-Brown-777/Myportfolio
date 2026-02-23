@@ -92,31 +92,48 @@ function CarouselCard({ song, position, isCenterCard, offset, index, isDragging 
           }}
           style={{ transformStyle: 'preserve-3d' }}
         >
-          {/* Card Front */}
-          <motion.div className="absolute inset-0" style={{ opacity: showFront ? 1 : 0, backfaceVisibility: 'hidden', transformStyle: 'preserve-3d', pointerEvents: 'auto' }}>
-            <Card className="h-full overflow-hidden border-primary shadow-2xl shadow-primary/30 flex flex-col bg-card/90 backdrop-blur-sm" style={{ transformStyle: 'preserve-3d' }}>
-              <div className="youtube-player w-full h-full">
-                <YouTubePlayer videoId={song.videoId} className="w-full h-full" />
+        {/* Card Front */}
+        <motion.div
+          className="absolute inset-0"
+          style={{
+            opacity: showFront ? 1 : 0,
+            backfaceVisibility: 'hidden',
+            transformStyle: 'preserve-3d',
+            pointerEvents: 'auto', // allow pointer events
+          }}
+        >
+          <Card
+            className="h-full overflow-hidden border-primary shadow-2xl shadow-primary/30 flex flex-col bg-card/90 backdrop-blur-sm"
+            style={{ transformStyle: 'preserve-3d' }}
+          >
+            <div
+              className="absolute w-[350px] h-[490px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"
+              style={{ pointerEvents: 'auto', zIndex: 1000 }}
+            >
+              <YouTubePlayer videoId={song.videoId} />
+            </div>
+        
+            <CardHeader className="flex-grow">
+              <CardTitle>{song.title}</CardTitle>
+              <CardDescription>{song.artist}</CardDescription>
+            </CardHeader>
+            <CardContent className="mt-auto">
+              <div className="flex flex-wrap gap-2 mb-4">
+                {song.tags.map((tag, idx) => (
+                  <Badge key={idx} variant="secondary">{tag}</Badge>
+                ))}
               </div>
-              <CardHeader className="flex-grow">
-                <CardTitle>{song.title}</CardTitle>
-                <CardDescription>{song.artist}</CardDescription>
-              </CardHeader>
-              <CardContent className="mt-auto">
-                <div className="flex flex-wrap gap-2 mb-4">
-                  {song.tags.map((tag, idx) => <Badge key={idx} variant="secondary">{tag}</Badge>)}
-                </div>
-                <div className="flex gap-2">
-                  <a href={`https://www.youtube.com/watch?v=${song.videoId}`} target="_blank" rel="noopener noreferrer" className="flex-1">
-                    <Button variant="outline" size="sm" className="w-full">
-                      <ArrowRight className="w-4 h-4 mr-2" />
-                      Listen on YouTube
-                    </Button>
-                  </a>
-                </div>
-              </CardContent>
-            </Card>
-          </motion.div>
+              <div className="flex gap-2">
+                <a href={`https://www.youtube.com/watch?v=${song.videoId}`} target="_blank" rel="noopener noreferrer" className="flex-1">
+                  <Button variant="outline" size="sm" className="w-full">
+                    <ArrowRight className="w-4 h-4 mr-2" />
+                    Listen on YouTube
+                  </Button>
+                </a>
+              </div>
+            </CardContent>
+          </Card>
+        </motion.div>
 
           {/* Card Back */}
           <motion.div className="absolute inset-0" style={{ display: showFront ? 'none' : 'block' }}>
@@ -125,7 +142,7 @@ function CarouselCard({ song, position, isCenterCard, offset, index, isDragging 
 
           {/* 3D Edges */}
           {["top","bottom","left","right"].map((edge, idx) => (
-            <div key={idx} className={`absolute ${edge}-0`} style={{
+          <div key={idx} className="absolute ${edge}-0 pointer-events-none" style={{
               ...(edge === "top" || edge === "bottom" ? { left:0,right:0,height:12,transform: edge==="top"?"rotateX(90deg)":"rotateX(-90deg)", transformOrigin: edge==="top"?"top":"bottom" } : { top:0,bottom:0,width:12, transform: edge==="left"?"rotateY(-90deg)":"rotateY(90deg)", transformOrigin: edge==="left"?"left":"right" }),
               background: "linear-gradient(to bottom, #6b21a8, #4c1d95)",
               borderWidth: "1px",

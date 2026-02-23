@@ -2938,6 +2938,10 @@
   --sidebar-ring: #e0a4ff;
 }
 
+:root .pointer-events-none {
+  pointer-events: none;
+}
+
 html {
   font-size: var(--font-size);
 }

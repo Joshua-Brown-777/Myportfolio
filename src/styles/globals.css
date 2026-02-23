@@ -54,6 +54,10 @@
   --sidebar-accent-foreground: #FFFFFF; /* Sidebar accent text */
   --sidebar-border: rgba(181, 101, 255, 0.5); /* Sidebar borders - BRIGHTER */
   --sidebar-ring: #E0A4FF; /* Sidebar focus ring - BRIGHTER */
+  /* CardBack or 3D edges */
+.pointer-events-none {
+  pointer-events: none;
+}
 }
 
 @theme inline {
