@@ -73,7 +73,7 @@ export function Hero() {
     };
 
     updateColors();
-    const interval = setInterval(updateColors, 50); // Update every 50ms for smooth color transitions
+    const interval = setInterval(updateColors, 100); // Reduced from 50ms to 100ms for better performance
 
     return () => clearInterval(interval);
   }, []);

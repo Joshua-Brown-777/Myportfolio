@@ -5,8 +5,8 @@ interface WavyTextProps {
 }
 
 export function WavyText({ text, className = "", large = false }: WavyTextProps) {
-  // Generate wave keyframes - creates a smooth sine wave cycle
-  const waveSteps = 72;
+  // Generate wave keyframes - creates a smooth sine wave cycle (reduced steps for performance)
+  const waveSteps = 36; // Reduced from 72 to 36 for better performance
   const generateWaveKeyframes = () => {
     let keyframes = '';
     for (let i = 0; i <= waveSteps; i++) {
@@ -39,6 +39,7 @@ export function WavyText({ text, className = "", large = false }: WavyTextProps)
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
           background-clip: text;
+          will-change: transform;
         }
       `}</style>
       
